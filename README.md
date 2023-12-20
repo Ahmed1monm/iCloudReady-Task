@@ -5,8 +5,8 @@
 - [x] Data stored in a simple in-memory database [ Array of Objects ]
 - [x] API documentation using Swagger
 - [x] Pagination for the list of tasks [ Bonus ]
-- [ ] Sorting by title and creation date [ Bonus ]
-- [ ] Unit Tests [ Bonus ]
+- [x] Sorting by title [ will sort by default ] [ Bonus ]
+- [x] Unit Tests [ Bonus ]
 
 ### 2. How to run the application
 #### 2.1. Prerequisites
@@ -22,4 +22,21 @@ npm install
 #### 2.4. Run the application
 ```bash
 npm run start
+```
+#### 2.5. Run the tests
+```bash
+npm run test
+```
+
+### 3. API Documentation
+#### 3.1. Swagger
+- Swagger UI: http://localhost:8000/swagger/
+
+#### 3.2. API Endpoints
+```
+- GET /tasks
+- post /tasks
+- GET /tasks/{id}
+- PUT /tasks/{id}
+- DELETE /tasks/{id}
 ```
