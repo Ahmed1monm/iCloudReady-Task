@@ -16,7 +16,7 @@ export const createTaskValidator = [
 
 export const updateTaskValidator = [
     param("id")
-        .isInt(),
+        .isString(),
     body("title")
         .optional()
         .isString()
@@ -31,6 +31,6 @@ export const updateTaskValidator = [
 
 export const deleteTaskValidator = [
     param("id")
-        .isInt(),
+        .isString(),
     validationMiddleware
 ];

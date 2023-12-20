@@ -20,10 +20,11 @@ export const createTask =  (req, res) => {
         const createdAt = new Date();
         const updatedAt = new Date();
         const id =  uuidv4()
-        const task =  createOneTask({ id, title, description, createdAt, updatedAt });
+        const task = { id, title, description, createdAt, updatedAt };
+        const tasksCount =  createOneTask(task);
         return res
             .status(201)
-            .json({ message: "Task created successfully", data: task });
+            .json({ message: "Task created successfully", data: task, tasksCount });
     } catch (error) {
         return res.status(500).json({ message: `error ${error}` });
     }
@@ -64,9 +65,8 @@ export const deleteTask =  (req, res) => {
         // check if the Task exists
         if(!Task) return res.status(404).json({ message: "Task not found" });
         const isDeleted =  deleteOneTask(id);
-        return res
-            .status(200)
-            .json({message: "Task deleted successfully", status: isDeleted });
+        console.log("isDeleted: ",isDeleted)
+        return res.status(204).send();
     } catch (error) {
         return res.status(500).json({ message: `error ${error}` });
     }

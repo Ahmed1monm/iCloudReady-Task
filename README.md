@@ -3,7 +3,7 @@
 ### 1. Implemented Features
 - [x] The required CRUD operations for the task entity
 - [x] Data stored in a simple in-memory database [ Array of Objects ]
-- [ ] API documentation using Swagger
+- [x] API documentation using Swagger
 - [x] Pagination for the list of tasks [ Bonus ]
 - [ ] Sorting by title and creation date [ Bonus ]
 - [ ] Unit Tests [ Bonus ]

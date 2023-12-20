@@ -24,7 +24,7 @@ export const countTasks =   ()=>{
  * @param  {int} id - Task ID
  */
 export const findTaskById =   (id)=>{
-    return tasks.find((task) => task.id === parseInt(id));
+    return tasks.find((task) => task.id === id);
 }
 
 /**
@@ -42,10 +42,10 @@ export const createOneTask =   (data)=>{
  * @param  {Object} data - Task data
  */
 export const updateOneTask =   (id, data)=>{
-    const task = tasks.find((task) => task.id === parseInt(id));
+    const task = tasks.find((task) => task.id === id);
     if(task){
         tasks.forEach((task) => {
-            if (task.id === parseInt(id)) {
+            if (task.id === id) {
                 task.title = data.title;
                 task.description = data.description;
                 task.updatedAt = data.updatedAt;
@@ -59,12 +59,15 @@ export const updateOneTask =   (id, data)=>{
  * @description get Tasks
  * @param  {int} id - Task id
  */
-export const deleteOneTask =   (id)=>{
-    const task = tasks.find((task) => task.id === parseInt(id));
+export const deleteOneTask = (id)=>{
+    const task = tasks.find((task) => task.id === id);
     if(task){
+        console.log("index of task: ",tasks.indexOf(task))
         tasks.forEach((task) => {
-            if (task.id === parseInt(id)) {
+            if (task.id === id) {
+                console.log("index of task: ",tasks.indexOf(task))
                 tasks.splice(tasks.indexOf(task), 1);
+                console.log("Fucken DELETED!!!")
                 return true;
             }
         });
