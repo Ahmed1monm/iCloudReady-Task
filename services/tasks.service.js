@@ -1,4 +1,4 @@
-import {tasks} from "../database/storage";
+import {tasks} from "../database/storage.js";
 
 /**
  * @description get Tasks
