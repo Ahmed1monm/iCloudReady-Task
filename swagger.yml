@@ -9,6 +9,25 @@ paths:
   /tasks:
     get:
       description: List all tasks
+      parameters:
+          - name: page
+            in: query
+            required: false
+            schema:
+                type: integer
+                example: 1
+          - name: count
+            in: query
+            required: false
+            schema:
+                type: integer
+                example: 10
+          - name: sort
+            in: query
+            required: false
+            schema:
+                type: string
+                example: title
       responses:
         200:
           description: Returns all tasks.
@@ -45,7 +64,7 @@ paths:
               $ref: '#/components/schemas/Task'
       responses:
         201:
-          description: Returns a new task created.
+          description: Created
           content:
               application/json:
                 schema:

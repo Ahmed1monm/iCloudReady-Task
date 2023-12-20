@@ -74,3 +74,20 @@ export const deleteOneTask = (id)=>{
     }
     return false;
 }
+
+export const sortTaskByTitle = (tasks) =>{
+    tasks.sort((a, b) => {
+        const titleA = a.title.toUpperCase(); // Convert to uppercase for case-insensitive comparison
+        const titleB = b.title.toUpperCase(); // Convert to uppercase for case-insensitive comparison
+
+        if (titleA < titleB) {
+            return -1;
+        }
+        if (titleA > titleB) {
+            return 1;
+        }
+        return 0; // titles are equal
+    });
+
+    return tasks;
+}

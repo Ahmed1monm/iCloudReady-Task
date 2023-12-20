@@ -4,7 +4,7 @@ import {
     createOneTask,
     deleteOneTask,
     findTaskById,
-    updateOneTask,
+    updateOneTask, sortTaskByTitle,
 } from "../services/tasks.service.js";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -99,12 +99,14 @@ export const getTask =  (req, res) => {
  */
 export const listTasks =  (req, res) => {
     try {
-        const { page = 1, count = 10 } = req.query;
+        const { page = 1, count = 10, sort="title" } = req.query;
         const offset = (parseInt(page) - 1) * parseInt(count);
 
-        const tasks =  getTasks(offset, count);
+        let tasks =  getTasks(offset, count);
         const tasksCount =  countTasks();
-        return res.status(200).json({ data: tasks, total: tasksCount, page });
+        const sortedTasks = sortTaskByTitle(tasks);
+
+        return res.status(200).json({ data: sortedTasks ?? tasks, total: tasksCount, page });
     } catch (error) {
         return res.status(500).json({ message: `Error: ${error}` });
     }

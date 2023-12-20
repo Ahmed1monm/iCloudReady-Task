@@ -9,20 +9,7 @@ import fs from "fs";
 // routes
 import routers from "./routes/index.js";
 
-/* CONFIGURATIONS */
-// const swaggerOptions = {
-//     definition: {
-//         openapi: '3.0.0',
-//         info: {
-//             title: 'Hello World',
-//             version: '1.0.0',
-//         },
-//     },
-//     apis: ['./routes/*.js'],
-// };
-//
-// const openapiSpecification = swaggerJsdoc(swaggerOptions);
-const app = express();
+export const app = express();
 const PORT = 8000;
 
 const file  = fs.readFileSync('./swagger.yml', 'utf8')
